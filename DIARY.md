@@ -23,3 +23,11 @@ Seeds could be programmed to sprout basedon time elapsed. Or use days ingame. If
 Imagine a `Crop` object that tracks crop name, type, sprite image, and time to harvest, and current phase. The phase tracks the stage of growth for the crop. Time to harvest is a number value of how many days it takes for it to develop from seed to food. The sprite image should rotate with the phase, so that it visibly grows to the player.
 
 When the crop is near time to harvest, if the its tall enough, it should animate with player proximity and/or wind/weather. Just a gentle sway from side to side and a rustle.
+
+## Tilesets
+
+`TileMap.set_cellv(vector, tile_id)`
+Tilemaps are where tiles are painted. This method sets a map cell to the given tile.
+
+`Tileset.tile_set_texture(tile_id, texture)`
+Is this similar to `set_cellv()`?

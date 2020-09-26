@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/stoney.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/trees.tres" type="TileSet" id=2]
@@ -8,10 +8,10 @@
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/images/props_tools.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Gabor.gd" type="Script" id=8]
-[ext_resource path="res://Assets/images/farm_crops/sprites without shadows/cauliflower_no_shadow.png" type="Texture" id=9]
-[ext_resource path="res://Assets/images/farm_crops/sprites without shadows/broccoli_no_shadow.png" type="Texture" id=10]
+[ext_resource path="res://Assets/crops.tres" type="TileSet" id=9]
+[ext_resource path="res://Scripts/Crops.gd" type="Script" id=10]
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=1]
 0/name = "props_tools.png 0"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
@@ -580,50 +580,6 @@
 37/shapes = [  ]
 37/z_index = 0
 
-[sub_resource type="TileSet" id=1]
-0/name = "broccoli"
-0/texture = ExtResource( 10 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 192, 32 )
-0/tile_mode = 2
-0/autotile/icon_coordinate = Vector2( 5, 0 )
-0/autotile/tile_size = Vector2( 32, 32 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-1/name = "cauliflower"
-1/texture = ExtResource( 9 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 192, 32 )
-1/tile_mode = 2
-1/autotile/icon_coordinate = Vector2( 0, 0 )
-1/autotile/tile_size = Vector2( 32, 32 )
-1/autotile/spacing = 0
-1/autotile/occluder_map = [  ]
-1/autotile/navpoly_map = [  ]
-1/autotile/priority_map = [  ]
-1/autotile/z_index_map = [  ]
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-
 [node name="Gabor" type="Node2D"]
 script = ExtResource( 8 )
 
@@ -668,7 +624,6 @@ cell_size = Vector2( 32, 32 )
 cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 720914, 43, 0, 720915, 43, 1, 720916, 43, 2, 720918, 43, 0, 720919, 43, 1, 720920, 43, 2, 786450, 43, 65536, 786451, 43, 65537, 786452, 43, 65538, 786454, 43, 65536, 786455, 43, 65537, 786456, 43, 65538, 851986, 43, 131072, 851987, 43, 131073, 851988, 43, 131074, 851990, 43, 131072, 851991, 43, 131073, 851992, 43, 131074 )
 
 [node name="FoliageMap" type="TileMap" parent="YSort"]
 tile_set = ExtResource( 2 )
@@ -702,7 +657,7 @@ format = 1
 tile_data = PoolIntArray( 327689, 17, 0, 327690, 17, 1, 327691, 17, 2, 327693, 8, 4, 393229, 8, 65540 )
 
 [node name="Props" type="TileMap" parent="YSort"]
-tile_set = SubResource( 3 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 cell_tile_origin = 1
@@ -712,15 +667,23 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 589830, 9, 0, 589834, 4, 0 )
 
-[node name="FarmTiles" type="TileMap" parent="YSort"]
-tile_set = SubResource( 1 )
+[node name="Crops" type="TileMap" parent="YSort" groups=[
+"crops",
+]]
+tile_set = ExtResource( 9 )
 cell_size = Vector2( 32, 32 )
 cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
-cell_y_sort = true
-collision_layer = 8
+collision_mask = 2
+format = 1
+script = ExtResource( 10 )
+
+[node name="FarmTiles" type="TileMap" parent="YSort"]
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 131084, 7, 0, 327693, 8, 4, 393225, 3, 0 )
+tile_data = PoolIntArray( 393225, 3, 0, 720910, 2, 0, 720911, 2, 1, 720912, 2, 2, 786446, 2, 65536, 786447, 2, 65537, 786448, 2, 65538, 851982, 2, 131072, 851983, 2, 131073, 851984, 2, 131074 )
 script = ExtResource( 5 )
 
 [node name="AccentsMap" type="TileMap" parent="YSort/FarmTiles"]
