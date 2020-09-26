@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Eden RTS"
+run/main_scene="res://Scenes/Levels/Gabor.tscn"
+config/icon="res://icon.png"
+
+[debug]
+
+gdscript/warnings/unused_class_variable=true
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="walls"
+2d_physics/layer_4="buildings"
+
+[logging]
+
+file_logging/enable_file_logging=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

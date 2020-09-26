@@ -1,0 +1,36 @@
+[gd_scene format=2]
+
+[node name="UI" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Texture" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Button" type="Button" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
