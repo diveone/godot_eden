@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/StartScreen.gd" type="Script" id=1]
+
+[node name="StartScreen" type="Node2D"]
+
+[node name="Container" type="Container" parent="."]
+margin_right = 1020.0
+margin_bottom = 607.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Container"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.0431373, 0.180392, 0.341176, 1 )
+
+[node name="Button" type="Button" parent="Container"]
+margin_left = 420.0
+margin_top = 300.0
+margin_right = 620.0
+margin_bottom = 360.0
+action_mode = 0
+text = "Start Game"
+script = ExtResource( 1 )
